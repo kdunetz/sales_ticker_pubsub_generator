@@ -1,0 +1,21 @@
+DIRECTORY
+/Users/kevindunetz/Documents/GCP/nodejs-getting-started/6-pubsub
+
+another-project-213615
+
+CREATE TOPIC
+node topics.js  create kad123
+
+CREATE SUBSCRIPTION
+node receive.js create projects/testing-vms-for-kad/topics/kad123 worker-1
+
+PUBLISH MESSAGE ON TOPIC
+node topics.js publish projects/testing-vms-for-kad/topics/kad123 "Helo"
+
+Writing into BigQuery
+node topics.js publish projects/testing-vms-for-kad/topics/kad123 "{\"name\":\"fred\"}"
+
+RECEIVE MESSAGE ON SUBSCRIPTION/TOPIC
+node receive listen-messages projects/testing-vms-for-kad/subscriptions/worker-1
+
+node topics.js get-policy greetings
